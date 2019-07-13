@@ -10,6 +10,7 @@ import com.prontuario.dominio.entity.Medicamento;
 import com.prontuario.dominio.entity.Paciente;
 import com.prontuario.dominio.entity.Sintoma;
 import com.prontuario.dominio.gerenciador.GerenciadorDeDoencas;
+import com.prontuario.dominio.gerenciador.GerenciadorPaciente;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -39,6 +40,7 @@ public class Prontuario {
 //        Medicamento medicamento = new Medicamento();
 //        Medicamento medicamento2 = new Medicamento();
         GerenciadorDeDoencas gerenciadorD = new GerenciadorDeDoencas(1);
+        GerenciadorPaciente gerenciadorP = new GerenciadorPaciente(1);
 //
 //        sintoma.setNome("dor");
 //        sintoma2.setNome("oi");
@@ -52,16 +54,13 @@ public class Prontuario {
 //        gerenciadorD.addDoenca(doenca);
 //        gerenciadorD.diagnostico("");
         char opcao;
-        Paciente p;
+        Paciente p = null;
         Medicamento m;
         Doenca d;
         Sintoma s;
 
-        
-        
         d = new Doenca(2, 2);
         s = new Sintoma();
-        p = new Paciente();
         m = new Medicamento();
 
         doenca1.setNome("Alzheimer");
@@ -91,15 +90,26 @@ public class Prontuario {
 
                 case 'a':
                 case 'A':
-                    p.cadastrarPaciente(p);
-                    p.addPaciente(p);
+                    Scanner entrada = new Scanner(System.in);
+                    System.out.println("Digite quantos pacientes deseja cadastrar: ");
+                    int qtd = entrada.nextInt();
+                    for (int i = 0; i < qtd; i++) {
+                        p = new Paciente();
+                        System.out.println("Digite o nome do paciente: ");
+                        p.setNome(entrada.next());
 
+                        System.out.println("Digite a idade do paciente: ");
+                        p.setIdade(entrada.nextInt());
+
+                        System.out.println("Digite o CPF do paciente: ");
+                        p.setCpf(entrada.next());
+                        gerenciadorP.addPaciente(p);
+                    }
                     break;
 
                 case 'b':
                 case 'B':
 
-                    
                     break;
 
                 case 'c':
@@ -123,15 +133,15 @@ public class Prontuario {
 
                 case 'e':
                 case 'E':
-                	doenca.cadastrarMedicamento(m);
+                    doenca.cadastrarMedicamento(m);
                     doenca.addMedicamento(m);
 
                     break;
 
                 case 'f':
                 case 'F':
-                	
-                	p.imprimi();
+
+                    gerenciadorP.imprimi();
                     break;
 
                 default:
@@ -154,11 +164,14 @@ public class Prontuario {
                 + "\n C. Cadastrar Sintoma"
                 + "\n D. Cadastrar Doença"
                 + "\n E. Cadastrar Medicamento"
-                +" \n F. Listar Paciente"
+                + " \n F. Listar Paciente"
                 + "\n S. Sair do programa");
 
         opcao = entrada.next().charAt(0);
         return opcao;
     }
 
+    public static void cadastrarPaciente(Paciente p) {
+
+    }
 }
