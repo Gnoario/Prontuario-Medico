@@ -57,7 +57,7 @@ public class Prontuario {
         Doenca d;
         Sintoma s;
 
-        ArrayList<Paciente> listaPaciente = new ArrayList<Paciente>();
+        
         
         d = new Doenca(2, 2);
         s = new Sintoma();
@@ -92,15 +92,14 @@ public class Prontuario {
                 case 'a':
                 case 'A':
                     p.cadastrarPaciente(p);
-                    listaPaciente.add(p);
+                    p.addPaciente(p);
 
                     break;
 
                 case 'b':
                 case 'B':
 
-                    System.out.println(listaPaciente.toString());
-
+                    
                     break;
 
                 case 'c':
@@ -124,11 +123,15 @@ public class Prontuario {
 
                 case 'e':
                 case 'E':
+                	doenca.cadastrarMedicamento(m);
+                    doenca.addMedicamento(m);
 
                     break;
 
-                case 's':
-                case 'S':
+                case 'f':
+                case 'F':
+                	
+                	p.imprimi();
                     break;
 
                 default:
@@ -146,15 +149,15 @@ public class Prontuario {
         char opcao;
         Scanner entrada = new Scanner(System.in);
 
-        System.out.println("\n A. Cadastrar um novo paciente \n"
-                + "\n B. Cadastrar consulta \n"
-                + "\n C. Cadastrar Sintoma\n"
-                + "\n D. Cadastrar Doença \n"
-                + "\n E. Cadastrar Medicamento\n"
-                + "\n S. Sair do programa  \n");
+        System.out.println("\n A. Cadastrar um novo paciente "
+                + "\n B. Cadastrar consulta"
+                + "\n C. Cadastrar Sintoma"
+                + "\n D. Cadastrar Doença"
+                + "\n E. Cadastrar Medicamento"
+                +" \n F. Listar Paciente"
+                + "\n S. Sair do programa");
 
         opcao = entrada.next().charAt(0);
-
         return opcao;
     }
 

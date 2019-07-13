@@ -12,16 +12,24 @@ import java.util.Scanner;
  * @author tadeu
  */
 public class Paciente extends Pessoa {
-
+    public static Paciente pacientes[];
+    private int size;
     public Paciente() {
 
     }
     
+
+    
     public static void cadastrarPaciente(Paciente p) {
 
-		do {
-			Scanner entrada = new Scanner(System.in);
-
+    	Scanner entrada = new Scanner(System.in);
+		System.out.println("Digite quantos pacientes deseja cadastrar: ");
+		int qtd = entrada.nextInt();
+		
+		pacientes = new Paciente[qtd];
+		
+		
+		for (int i = 0; i < qtd; i++) {
 			System.out.println("Digite o nome do paciente: ");
 			p.setNome(entrada.next());
 
@@ -31,8 +39,26 @@ public class Paciente extends Pessoa {
 			System.out.println("Digite o CPF do paciente: ");
 			p.setCpf(entrada.next());
 
-		} while (p.getNome() == null && p.getIdade() == 0 && p.getCpf() == null);
+		}
+		
 	}
+	
+	public boolean addPaciente(Paciente p) {
+		if (size >= 0 && size < pacientes.length) {
+			pacientes[size] = p;
+			size++;
+			return true;
+		}
+		return false;
+	}
+	
+	  public void imprimi() {
+	        for (int i = 0; i < size; i++) {
+	            System.out.println("pacientes: " + pacientes[i].getNome());
+	            
+	        }
+	    }
     
+     
     
 }
