@@ -13,6 +13,7 @@ import java.util.Date;
  */
 public class Consulta {
 
+    private Medico medico;
     private Paciente paciente;
     private Date horaDiaConsulta;
     private boolean ativa;
@@ -21,6 +22,16 @@ public class Consulta {
         
     }
 
+    public Medico getMedico() {
+        return medico;
+    }
+
+    public void setMedico(Medico medico) {
+        this.medico = medico;
+    }
+
+    
+    
     public Paciente getPaciente() {
         return paciente;
     }

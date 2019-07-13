@@ -19,5 +19,32 @@ public class GerenciadorConsulta {
 
     public GerenciadorConsulta(int max) {
         consultas = new Consulta[max];
+        size = 0;
+    }
+    
+    public boolean addConsulta(Consulta consulta) {
+        if (!isFullConsultas()) {
+            consultas[size] = consulta;
+            size++;
+            return true;
+        }
+        return false;
+    }
+    
+    public void imprimi() {
+        for (int i = 0; i < size; i++) {
+            System.out.println("Nome do Paciente: " + consultas[i].getPaciente().getNome());
+            System.out.println("Idade: " + consultas[i].getPaciente().getIdade());
+            System.out.println("CPF: " + consultas[i].getPaciente().getCpf());
+            System.out.println("Médico responsável: " + consultas[i].getMedico().getNome());
+            System.out.println("Horário da Consulta: " + consultas[i].getHoraDiaConsulta());
+        }
+    }
+
+    public boolean isFullConsultas() {
+        if (size != consultas.length) {
+            return false;
+        }
+        return true;
     }
 }

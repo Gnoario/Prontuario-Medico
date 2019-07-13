@@ -12,6 +12,6 @@ package com.prontuario.dominio.entity;
 public class Medico extends Pessoa {
 
     public Medico() {
-
+        
     }
 }

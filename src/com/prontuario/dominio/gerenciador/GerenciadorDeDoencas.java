@@ -22,12 +22,12 @@ public class GerenciadorDeDoencas {
         size = 0;
     }
 
-    GerenciadorDeDoencas() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public GerenciadorDeDoencas() {
+
     }
 
     public boolean addDoenca(Doenca doenca) {
-        if (!isFullMedicamentos()) {
+        if (!isFullDoencas()) {
             doencas[size] = doenca;
             size++;
             return true;
@@ -35,7 +35,7 @@ public class GerenciadorDeDoencas {
         return false;
     }
 
-    public boolean isFullMedicamentos() {
+    public boolean isFullDoencas() {
         if (size != doencas.length) {
             return false;
         }
@@ -58,17 +58,17 @@ public class GerenciadorDeDoencas {
 
         }
     }
-    
+
     public static void cadastrarDoenca(Doenca d) {
 
-		do {
-			Scanner entrada = new Scanner(System.in);
+        do {
+            Scanner entrada = new Scanner(System.in);
 
-			System.out.println("Digite o nome da doenca: ");
-			d.setNome(entrada.next());
+            System.out.println("Digite o nome da doenca: ");
+            d.setNome(entrada.next());
 
-		} while (d.getNome()== null);
+        } while (d.getNome() == null);
 
-	}
+    }
 
 }
