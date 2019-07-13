@@ -9,6 +9,9 @@ package com.prontuario.dominio.entity;
  *
  * @author tadeu
  */
-public class Medico {
-    
+public class Medico extends Pessoa {
+
+    public Medico() {
+
+    }
 }
