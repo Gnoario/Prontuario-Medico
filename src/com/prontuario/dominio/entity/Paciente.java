@@ -5,8 +5,6 @@
  */
 package com.prontuario.dominio.entity;
 
-import java.util.Scanner;
-
 /**
  *
  * @author tadeu

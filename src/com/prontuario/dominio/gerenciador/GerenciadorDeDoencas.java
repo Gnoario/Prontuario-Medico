@@ -44,28 +44,35 @@ public class GerenciadorDeDoencas {
 
     public void imprimi() {
         for (int i = 0; i < size; i++) {
+            System.out.println("_____________________________________________________________________");
             System.out.println("Doença: " + doencas[i].getNome());
             doencas[i].imprimiSintomas();
             doencas[i].imprimiMedicamentos();
+            System.out.println("_____________________________________________________________________");
         }
     }
 
     public void diagnostico(String sintoma) {
+        System.out.println("\tPossíveis Doenças");
         for (int i = 0; i < size; i++) {
             if (doencas[i].localizarDoencas(sintoma)) {
+                System.out.println("________________________________________");
                 System.out.println(doencas[i].getNome());
+                doencas[i].imprimiSintomas();
+                doencas[i].imprimiMedicamentos();
+                System.out.println("________________________________________");
             }
 
         }
     }
 
-    public static void cadastrarDoenca(Doenca d) {
+    public void cadastrarDoenca(Doenca d) {
 
         do {
             Scanner entrada = new Scanner(System.in);
 
             System.out.println("Digite o nome da doenca: ");
-            d.setNome(entrada.next());
+            d.setNome(entrada.nextLine());
 
         } while (d.getNome() == null);
 

@@ -5,7 +5,6 @@
  */
 package com.prontuario.dominio.entity;
 
-import java.util.Date;
 
 /**
  *
@@ -15,7 +14,7 @@ public class Consulta {
 
     private Medico medico;
     private Paciente paciente;
-    private Date horaDiaConsulta;
+    private String horaDiaConsulta;
     private boolean ativa;
     
     public Consulta(){
@@ -40,11 +39,11 @@ public class Consulta {
         this.paciente = paciente;
     }
 
-    public Date getHoraDiaConsulta() {
+    public String getHoraDiaConsulta() {
         return horaDiaConsulta;
     }
 
-    public void setHoraDiaConsulta(Date horaDiaConsulta) {
+    public void setHoraDiaConsulta(String horaDiaConsulta) {
         this.horaDiaConsulta = horaDiaConsulta;
     }
 

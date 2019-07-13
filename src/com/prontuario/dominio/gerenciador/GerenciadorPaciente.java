@@ -12,7 +12,8 @@ import com.prontuario.dominio.entity.Paciente;
  * @author tadeu
  */
 public class GerenciadorPaciente {
-    public static Paciente pacientes[];
+
+    private Paciente pacientes[];
     private int size;
 
     public GerenciadorPaciente(int max) {
@@ -20,6 +21,13 @@ public class GerenciadorPaciente {
         size = 0;
     }
 
+    public Paciente[] getPacientes() {
+        return pacientes;
+    }
+
+    public void setPacientes(Paciente[] pacientes) {
+        this.pacientes = pacientes;
+    }
 
     public boolean addPaciente(Paciente p) {
         if (!isFullPacientes()) {
@@ -40,7 +48,16 @@ public class GerenciadorPaciente {
     public void imprimi() {
         System.out.println(size);
         for (int i = 0; i < size; i++) {
+            System.out.println("_______________________________________________________");
+            System.out.println("Número do paciente: " + i + 1);
             System.out.println("Nome do paciente: " + pacientes[i].getNome());
+            System.out.println("CPF: " + pacientes[i].getCpf());
+            System.out.println("Idade: " + pacientes[i].getIdade());
+            System.out.println("_______________________________________________________");
         }
+    }
+
+    public int getSize() {
+        return size;
     }
 }

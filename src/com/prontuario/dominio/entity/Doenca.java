@@ -37,7 +37,7 @@ public class Doenca {
 
     public boolean localizarDoencas(String sintoma) {
         for (int i = 0; i < sizeSint; i++) {
-            if (sintomas[i].getNome().contains(sintoma)) {
+            if (sintomas[i].getNome().toUpperCase().contains(sintoma)) {
                 return true;
             }
         }
@@ -67,7 +67,7 @@ public class Doenca {
         return true;
     }
 
-    public static void cadastrarSintoma(Sintoma s) {
+    public void cadastrarSintoma(Sintoma s) {
 
         Scanner entrada = new Scanner(System.in);
 

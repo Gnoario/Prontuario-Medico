@@ -13,14 +13,11 @@ import com.prontuario.dominio.entity.Consulta;
  */
 public class GerenciadorDiagnostico {
 
-    GerenciadorDeDoencas gerenciadorPrincipal = new GerenciadorDeDoencas();
-    Consulta consulta = new Consulta();
-
     public GerenciadorDiagnostico() {
 
     }
 
-    public void gerenciarDiagnostico(String sintoma) {
+    public void gerenciarDiagnostico(GerenciadorDeDoencas gerenciadorPrincipal,String sintoma) {
         gerenciadorPrincipal.diagnostico(sintoma);
     }
     
